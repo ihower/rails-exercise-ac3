@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.1.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -8,6 +8,10 @@ gem 'rails', '4.1.6'
 # gem 'sqlite3'
 
 gem 'mysql2'
+
+# for heroku
+gem 'pg'
+gem 'rails_12factor', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
