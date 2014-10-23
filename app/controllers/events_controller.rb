@@ -17,6 +17,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
+      flash[:notice] = "Creating Good Job!"
       redirect_to :action => :index
     else
       render :action => :new
@@ -35,6 +36,7 @@ class EventsController < ApplicationController
   # POST /events/create/:id
   def update
     if @event.update_attributes(event_params)
+      flash[:notice] = "Editing Good Job!"
       redirect_to :action => :show, :id => @event
     else
       render :action => :edit
@@ -44,6 +46,8 @@ class EventsController < ApplicationController
   # /events/destroy/:id
   def destroy
     @event.destroy
+
+    flash[:alert] = "WTF!"
 
     redirect_to :action => :index
   end
