@@ -18,7 +18,7 @@ class EventsController < ApplicationController
 
     if @event.save
       flash[:notice] = "Creating Good Job!"
-      redirect_to :action => :index
+      redirect_to events_url
     else
       render :action => :new
     end
@@ -37,7 +37,7 @@ class EventsController < ApplicationController
   def update
     if @event.update_attributes(event_params)
       flash[:notice] = "Editing Good Job!"
-      redirect_to :action => :show, :id => @event
+      redirect_to event_url(@event)
     else
       render :action => :edit
     end

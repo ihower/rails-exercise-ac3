@@ -1,4 +1,4 @@
-<%= form_for @event, :url => { :controller => 'events', :action => 'create' }, :html => { :class => "foobar" } do |f| %>
+<%= form_for @event, :url => events_path, :html => { :class => "foobar" } do |f| %>
 
   <%= render "form",  :f => f %>
   <%#= render :partial => "form", :locals => { :f => f } %>
