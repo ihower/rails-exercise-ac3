@@ -23,6 +23,27 @@ class EventsController < ApplicationController
     @event = Event.find( params[:id] )
   end
 
+  # GET /events/edit/:id
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  # POST /events/create/:id
+  def update
+    @event = Event.find(params[:id])
+    @event.update_attributes(event_params)
+
+    redirect_to :action => :show, :id => @event
+  end
+
+  # /events/destroy/:id
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+
+    redirect_to :action => :index
+  end
+
   private
 
   def event_params
