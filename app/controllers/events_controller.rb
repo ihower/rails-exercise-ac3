@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+  before_action :set_event, :only => [ :show, :edit, :update, :destroy]
+
   # GET /events
   def index
     @events = Event.all
@@ -20,19 +22,15 @@ class EventsController < ApplicationController
 
   # GET /events/show/:id
   def show
-    @event = Event.find( params[:id] )
-
     @page_title = @event.name
   end
 
   # GET /events/edit/:id
   def edit
-    @event = Event.find(params[:id])
   end
 
   # POST /events/create/:id
   def update
-    @event = Event.find(params[:id])
     @event.update_attributes(event_params)
 
     redirect_to :action => :show, :id => @event
@@ -40,13 +38,16 @@ class EventsController < ApplicationController
 
   # /events/destroy/:id
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
 
     redirect_to :action => :index
   end
 
   private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
   def event_params
     params.require(:event).permit(:name, :description)
