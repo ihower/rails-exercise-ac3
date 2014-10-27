@@ -1,0 +1,22 @@
+<h2>Attendee List</h2>
+
+<%= form_for Attendee.new, :url => event_attendees_path(@event) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+
+<% end %>
+
+<ul>
+<% @attendees.each do |a| %>
+
+    <li>
+      <%= a.id %>
+      <%= a.name %>
+      <%= link_to "Edit", edit_event_attendee_path(@event, a) %>
+
+    </li>
+
+<% end %>
+</ul>
