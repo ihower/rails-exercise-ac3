@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
   resources :events do
      resources :attendees, :controller => 'event_attendees'
+
+     #collection do
+     #   get :search
+     #end
+
+     member do
+        get :dashboard
+     end
   end
 
   resources :people
