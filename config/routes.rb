@@ -12,6 +12,11 @@ Rails.application.routes.draw do
      end
   end
 
+  namespace :admin do
+    resources :events
+  end
+
+
   resources :people
 
   get "welcome" => "welcome#index"
