@@ -15,7 +15,7 @@
       <%= a.id %>
       <%= a.name %>
       <%= link_to "Edit", edit_event_attendee_path(@event, a) %>
-
+      <%= link_to "Remove", event_attendee_path(@event,a), :method => :delete %>
     </li>
 
 <% end %>
