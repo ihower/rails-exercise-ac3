@@ -1,5 +1,7 @@
 <%= @event.name %>
 
+<p>created by <%= @event.user.try(:name) %></p>
+
 <%= simple_format(@event.description) %>
 
 <p>Group:

@@ -7,11 +7,11 @@ class EventsController < ApplicationController
   # GET /events
   def index
     if params[:keyword]
-      @events = Event.where( [ "name like ?", "%#{params[:keyword]}%" ]).page( params[:page] ).per(5)
+      @events = current_user.events.where( [ "name like ?", "%#{params[:keyword]}%" ]).page( params[:page] ).per(5)
     elsif params[:order] == "created_at"
-      @events = Event.order("created_at DESC").page( params[:page] ).per(5)
+      @events = current_user.events.order("created_at DESC").page( params[:page] ).per(5)
     else
-      @events = Event.page( params[:page] ).per(5)
+      @events = current_user.events.page( params[:page] ).per(5)
     end
 
     respond_to do |format|
@@ -30,6 +30,7 @@ class EventsController < ApplicationController
   # POST /events/create
   def create
     @event = Event.new(event_params)
+    @event.user = current_user
 
     if @event.save
       flash[:notice] = "Creating Good Job!"
