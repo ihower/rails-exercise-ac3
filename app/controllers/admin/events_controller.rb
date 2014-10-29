@@ -1,9 +1,10 @@
 class Admin::EventsController < ApplicationController
 
-  before_action :authenticate
+  before_action :authenticate_user!
+
+  before_action :authenticate_admin
 
   layout "admin"
-
 
   def index
     @events = Event.all
@@ -16,10 +17,11 @@ class Admin::EventsController < ApplicationController
 
   protected
 
-  def authenticate
-     authenticate_or_request_with_http_basic do |user_name, password|
-         user_name == "username" && password == "password"
-     end
+  def authenticate_admin
+    unless current_user.is_admin
+      flash[:alert] = "Not allow!"
+      redirect_to events_path
+    end
   end
 
 end
