@@ -9,6 +9,8 @@ gem 'rails', '4.1.6'
 
 gem 'devise'
 
+gem "paperclip"
+
 gem 'mysql2'
 
 # for heroku

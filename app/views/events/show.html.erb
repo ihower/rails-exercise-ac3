@@ -12,4 +12,7 @@
 
 <p>Category: <%= @event.category_name %></p>
 
+<%= link_to image_tag( @event.logo.url(:thumb) ), @event.logo.url %>
+
 <p><%= link_to 'Back to index', events_path, class: "btn btn-primary" %></p>
+

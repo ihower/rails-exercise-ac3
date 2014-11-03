@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141102141327) do
+ActiveRecord::Schema.define(version: 20141103042408) do
 
   create_table "attendees", force: true do |t|
     t.string   "name"
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 20141102141327) do
     t.string   "status"
     t.integer  "category_id"
     t.integer  "user_id"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   add_index "events", ["category_id"], name: "index_events_on_category_id", using: :btree
