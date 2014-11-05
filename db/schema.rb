@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103042408) do
+ActiveRecord::Schema.define(version: 20141105031711) do
 
   create_table "attendees", force: true do |t|
     t.string   "name"
@@ -69,6 +69,22 @@ ActiveRecord::Schema.define(version: 20141103042408) do
     t.string   "name"
     t.text     "bio"
     t.date     "birthday"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["event_id"], name: "index_taggings_on_event_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

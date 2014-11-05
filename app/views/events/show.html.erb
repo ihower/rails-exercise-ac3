@@ -1,5 +1,7 @@
 <%= @event.name %>
 
+<p>Tags: <%= @event.tag_name %></p>
+
 <p>created by <%= @event.user.try(:name) %></p>
 
 <%= simple_format(@event.description) %>
