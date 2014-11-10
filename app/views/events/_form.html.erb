@@ -28,6 +28,9 @@
 
 <div class="form-group">
   <%= f.file_field :logo %>
+  <% if f.object.logo.exists? %>
+    <%= f.check_box :_destroy_logo %> Remove Logo
+  <% end %>
 </div>
 
 <hr>
