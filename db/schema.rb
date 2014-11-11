@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103042408) do
+ActiveRecord::Schema.define(version: 20141111034503) do
 
   create_table "attendees", force: true do |t|
     t.string   "name"
@@ -48,14 +48,28 @@ ActiveRecord::Schema.define(version: 20141103042408) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "uid"
   end
 
   add_index "events", ["category_id"], name: "index_events_on_category_id", using: :btree
+  add_index "events", ["uid"], name: "index_events_on_uid", unique: true, using: :btree
+
+  create_table "friendships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.string   "status",     default: "pending"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friendships", ["friend_id"], name: "index_friendships_on_friend_id", using: :btree
+  add_index "friendships", ["user_id"], name: "index_friendships_on_user_id", using: :btree
 
   create_table "groups", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
   end
 
   create_table "locations", force: true do |t|
@@ -69,6 +83,22 @@ ActiveRecord::Schema.define(version: 20141103042408) do
     t.string   "name"
     t.text     "bio"
     t.date     "birthday"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "event_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["event_id"], name: "index_taggings_on_event_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,6 +118,7 @@ ActiveRecord::Schema.define(version: 20141103042408) do
     t.datetime "updated_at"
     t.boolean  "is_admin",               default: false
     t.string   "nickname"
+    t.string   "time_zone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
