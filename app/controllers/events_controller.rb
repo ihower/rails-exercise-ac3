@@ -25,6 +25,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @event.setup_uid
   end
 
   # POST /events/create
@@ -83,7 +84,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :description, :category_id, :logo, :_destroy_logo, :group_ids => [] )
+    params.require(:event).permit(:name, :description, :category_id, :logo, :_destroy_logo, :uid, :group_ids => [] )
   end
 
 end

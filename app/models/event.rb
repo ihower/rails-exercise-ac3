@@ -19,7 +19,7 @@ class Event < ActiveRecord::Base
    has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
    validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 
-   # validates_uniqueness_of :uid
+   validates_uniqueness_of :uid
 
    before_validation :remove_logo
    before_create :setup_uid
