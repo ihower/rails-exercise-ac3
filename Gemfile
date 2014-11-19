@@ -47,6 +47,7 @@ gem 'spring',        group: :development
 
 gem 'capistrano-rails', '~> 1.1.1', :group => :development
 gem 'capistrano-passenger'
+gem 'capistrano-sidekiq'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

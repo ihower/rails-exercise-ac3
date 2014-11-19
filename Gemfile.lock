@@ -46,6 +46,9 @@ GEM
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-sidekiq (0.4.0)
+      capistrano
+      sidekiq
     celluloid (0.15.2)
       timers (~> 1.1.0)
     climate_control (0.0.3)
@@ -191,6 +194,7 @@ DEPENDENCIES
   bootstrap-sass
   capistrano-passenger
   capistrano-rails (~> 1.1.1)
+  capistrano-sidekiq
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 2.0)
