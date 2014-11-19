@@ -13,6 +13,7 @@ gem 'devise'
 gem "paperclip"
 
 gem 'mysql2'
+gem 'sidekiq'
 
 # for heroku
 # gem 'pg'
