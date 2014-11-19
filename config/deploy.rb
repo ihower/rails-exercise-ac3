@@ -1,6 +1,8 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
+`ssh-add` # need this to make key-forwarding work
+
 set :application, 'rails-exercise'
 set :repo_url, 'git@github.com:ihower/rails-exercise.git'
 
