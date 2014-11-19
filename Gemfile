@@ -15,8 +15,8 @@ gem "paperclip"
 gem 'mysql2'
 
 # for heroku
-gem 'pg'
-gem 'rails_12factor', group: :production
+# gem 'pg'
+# gem 'rails_12factor', group: :production
 
 gem "kaminari"
 
