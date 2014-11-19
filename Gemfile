@@ -45,6 +45,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'capistrano-rails', '~> 1.1.1', :group => :development
+gem 'capistrano-passenger'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
