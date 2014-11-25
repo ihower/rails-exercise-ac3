@@ -10,6 +10,9 @@
   <% end %>
 </p>
 
+<div id="event_area">
+</div>
+
 <%= link_to 'Sort by created_at DESC', events_path( :order => "created_at") %>
 <%= link_to 'Sort by created_at', events_path %>
 
@@ -31,6 +34,12 @@
     <%= link_to 'Dashboard', dashboard_event_path(event), class: 'btn btn-default' %>
 
     <%= link_to 'Show', event_path(event), class: 'btn btn-default' %>
+
+    <%= link_to 'Ajax Show', event_path(event), remote: true, class: 'btn btn-default' %>
+
+
+<%= link_to 'Ajax Show(JSON)', event_path(event), :remote => true, :data => { :type => :json }, :class => "ajax_update btn btn-default" %>
+
 
     <%= link_to "Attendee List", event_attendees_path(event), class: 'btn btn-default' %>
 
@@ -57,4 +66,17 @@
 <% end %>
 
 </p>
+
+
+
+<script>
+$(document).ready(function() {
+    $('.ajax_update').on("ajax:success", function(event, data) {
+        console.log(data);
+
+        $('#event_area').html( data.name + " " + data.description );
+    });
+});
+</script>
+
 

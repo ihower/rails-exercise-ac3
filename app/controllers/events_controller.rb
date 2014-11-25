@@ -43,11 +43,14 @@ class EventsController < ApplicationController
 
   # GET /events/show/:id
   def show
+
     respond_to do |format|
       format.html { @page_title = @event.name } # show.html.erb
       format.xml # show.xml.builder
-      format.json { render :json => { id: @event.id, name: @event.name }.to_json }
+      format.json { render :json => { id: @event.id, name: @event.name, description: @event.description }.to_json, :callback => params[:callback] }
+      format.js
     end
+
   end
 
   def dashboard
