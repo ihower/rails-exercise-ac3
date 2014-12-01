@@ -15,6 +15,8 @@ gem "paperclip"
 gem 'mysql2'
 gem 'sidekiq'
 
+gem 'airbrake'
+
 # for heroku
 # gem 'pg'
 # gem 'rails_12factor', group: :production
