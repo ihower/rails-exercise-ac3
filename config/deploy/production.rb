@@ -17,6 +17,9 @@ role :db,  %w{deploy@106.187.52.234}
 
 server '106.187.52.234', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
+# Default deploy_to directory is /var/www/my_app
+set :deploy_to, '/home/deploy/rails-exercise'
+
 
 # Custom SSH Options
 # ==================
