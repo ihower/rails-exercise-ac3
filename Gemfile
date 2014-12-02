@@ -6,6 +6,10 @@ gem 'rails', '4.1.6'
 
 gem 'rspec-rails'
 
+# Re-index:
+# bundle exec rake environment elasticsearch:import:all
+# bundle exec rake environment elasticsearch:import:model CLASS='Event'
+
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 

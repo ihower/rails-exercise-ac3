@@ -1,8 +1,5 @@
 class Event < ActiveRecord::Base
 
-    include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-
    attr_accessor :_destroy_logo
    validates_presence_of :name
 
@@ -26,6 +23,13 @@ class Event < ActiveRecord::Base
 
    before_validation :remove_logo
    before_create :setup_uid
+
+   include Elasticsearch::Model
+   include Elasticsearch::Model::Callbacks
+
+   def as_indexed_json(options={})
+      self.as_json( :include => :location )
+   end
 
    def to_param
       self.uid
