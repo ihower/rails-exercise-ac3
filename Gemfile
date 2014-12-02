@@ -5,6 +5,10 @@ ruby "2.1.5"
 gem 'rails', '4.1.6'
 
 gem 'rspec-rails'
+
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 

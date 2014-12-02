@@ -1,5 +1,8 @@
 class Event < ActiveRecord::Base
 
+    include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
    attr_accessor :_destroy_logo
    validates_presence_of :name
 

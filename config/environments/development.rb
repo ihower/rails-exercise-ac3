@@ -35,3 +35,8 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
+
+# bundle exec rake environment elasticsearch:import:model CLASS='Event'
+Elasticsearch::Model.client = Elasticsearch::Client.new host: 'http://localhost:9200'
+
+#Elasticsearch::Model.client = Elasticsearch::Client.new host: 'https://bofur-us-east-1.searchly.com/api-key/17faa030cd0b9d4cf486257822cab7ab'

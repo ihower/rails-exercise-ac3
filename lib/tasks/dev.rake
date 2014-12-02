@@ -1,3 +1,5 @@
+require 'elasticsearch/rails/tasks/import'
+
 namespace :dev do
 
   task :fix_event_uid =>  :environment do
