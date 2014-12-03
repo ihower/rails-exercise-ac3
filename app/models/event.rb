@@ -28,7 +28,7 @@ class Event < ActiveRecord::Base
    include Elasticsearch::Model::Callbacks
 
    def as_indexed_json(options={})
-      self.as_json( :include => :location )
+      self.as_json( :only => [:name, :description], :include => :location )
    end
 
    def to_param

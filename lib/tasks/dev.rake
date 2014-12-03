@@ -14,9 +14,10 @@ namespace :dev do
 
   task :fake => :environment do
     user = User.first
-
-    100.times do |i|
-      Event.create( :name => "Event #{i}", :user => user)
+    25.times do |i|
+      s = JSON.parse(open('http://more.handlino.com/sentences.json').read)["sentences"][0]
+      puts s
+      Event.create( :name => "Event #{i}", :user => user, :description => s )
     end
 
   end
