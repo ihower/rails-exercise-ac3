@@ -49,7 +49,7 @@ class EventAttendeesController < ApplicationController
   end
 
   def set_event
-    @event = Event.find( params[:event_id] )
+    @event = Event.find_by_uid( params[:event_id] )
   end
 
 end

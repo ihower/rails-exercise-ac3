@@ -6,6 +6,8 @@ gem 'rails', '4.1.6'
 
 gem 'rspec-rails'
 
+gem 'nested_form_fields'
+
 # Re-index:
 # bundle exec rake environment elasticsearch:import:all
 # bundle exec rake environment elasticsearch:import:model CLASS='Event'

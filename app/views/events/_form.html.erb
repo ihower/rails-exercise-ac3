@@ -1,3 +1,5 @@
+<% @event.attendees.build if @event.attendees.empty? %>
+
 <% if @event.errors.any? %>
       <ul>
       <% @event.errors.full_messages.each do |msg| %>
@@ -37,5 +39,17 @@
     <%= f.check_box :_destroy_logo %> Remove Logo
   <% end %>
 </div>
+
+
+<h3>Attendee List</h3>
+<%= f.nested_fields_for :attendees do |ff| %>
+  <div class="form-group">
+    <%= ff.text_field :name %>
+
+    <%= ff.remove_nested_fields_link "X" %>
+    <%= f.add_nested_fields_link :attendees, "Add" %>
+  </div>
+<% end %>
+
 
 <hr>
