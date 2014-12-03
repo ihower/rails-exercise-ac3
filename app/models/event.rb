@@ -24,6 +24,8 @@ class Event < ActiveRecord::Base
    before_validation :remove_logo
    before_create :setup_uid
 
+   accepts_nested_attributes_for :location
+
    accepts_nested_attributes_for :attendees, allow_destroy: true, reject_if: :all_blank
 
    include Elasticsearch::Model

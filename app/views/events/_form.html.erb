@@ -1,4 +1,5 @@
 <% @event.attendees.build if @event.attendees.empty? %>
+<% @event.build_location if @event.location.nil? %>
 
 <% if @event.errors.any? %>
       <ul>
@@ -40,6 +41,11 @@
   <% end %>
 </div>
 
+<div class="form-group">
+<%= f.fields_for :location do |ff| %>
+  Location Name: <%= ff.text_field :name %>
+<% end %>
+</div>
 
 <h3>Attendee List</h3>
 <%= f.nested_fields_for :attendees do |ff| %>
