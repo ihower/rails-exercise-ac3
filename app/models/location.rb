@@ -11,7 +11,7 @@ class Location < ActiveRecord::Base
   end
 
   after_commit on: [:destroy] do
-    self.event.__elasticsearch__.delete_document
+    self.event.__elasticsearch__.update_document
   end
 
 end
