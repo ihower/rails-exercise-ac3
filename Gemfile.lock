@@ -33,6 +33,11 @@ GEM
     arel (5.0.1.20140414130214)
     autoprefixer-rails (4.0.1)
       execjs
+    aws-sdk (1.59.1)
+      aws-sdk-v1 (= 1.59.1)
+    aws-sdk-v1 (1.59.1)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.9)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
@@ -119,6 +124,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.3)
+    mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
     multipart-post (2.0.0)
@@ -126,6 +132,8 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
@@ -237,6 +245,7 @@ PLATFORMS
 DEPENDENCIES
   airbrake
   autoprefixer-rails
+  aws-sdk
   bootstrap-sass
   capistrano-passenger
   capistrano-rails (~> 1.1.1)

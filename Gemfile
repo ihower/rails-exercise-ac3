@@ -19,6 +19,7 @@ gem 'elasticsearch-rails'
 gem 'devise'
 
 gem "paperclip"
+gem 'aws-sdk'
 
 gem 'mysql2'
 gem 'sidekiq'
