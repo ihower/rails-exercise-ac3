@@ -13,6 +13,8 @@ gem 'rspec-rails'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+gem "redis"
+
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 
